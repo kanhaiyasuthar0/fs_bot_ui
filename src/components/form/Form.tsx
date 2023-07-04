@@ -1,6 +1,8 @@
 // FeedbackForm.js
 import React, { useEffect, useState } from "react";
 import "./FeedbackForm.css";
+import { Button, Input, Select } from "antd";
+import TextArea from "antd/es/input/TextArea";
 // const mongoose = require("mongoose");
 
 // Connect to MongoDB
@@ -82,7 +84,7 @@ const Form = (props) => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
-          <input
+          <Input
             type="text"
             id="name"
             value={name}
@@ -93,7 +95,7 @@ const Form = (props) => {
 
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input
+          <Input
             type="email"
             id="email"
             value={email}
@@ -104,22 +106,29 @@ const Form = (props) => {
 
         <div className="form-group">
           <label htmlFor="rating">Rating</label>
-          <select
+          <Select
             id="rating"
             value={rating}
-            onChange={(e) => setRating(e.target.value)}
+            onChange={(e) => setRating(e)}
             required
-          >
-            <option value="">Select an option</option>
-            <option value="good">Good</option>
-            <option value="bad">Bad</option>
-            <option value="average">Average</option>
-          </select>
+            options={[
+              { value: "", label: "Select an option" },
+              { value: "good", label: "Good" },
+              { value: "average", label: "Average" },
+              { value: "bad", label: "Bad" },
+            ]}
+          />
+          {/* <option value=""></option>
+          <option value="good">Good</option>
+          <option value="bad">Bad</option>
+          <option value="average">Average</option> */}
+          {/* </Select> */}
         </div>
 
         <div className="form-group">
           <label htmlFor="description">Description</label>
-          <textarea
+          <TextArea
+            rows={4}
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -129,7 +138,7 @@ const Form = (props) => {
 
         <div className="form-group">
           <label htmlFor="mobileNumber">Mobile Number</label>
-          <input
+          <Input
             type="tel"
             id="mobileNumber"
             value={disabledMobileNumber}
