@@ -35,7 +35,7 @@ const Form = (props) => {
     // You can send the feedback data to a server or perform any other actions
 
     // Clear form inputs
-
+    console.log(name, email, rating, description, mobileNumber);
     props.tele.sendData(
       JSON.stringify({
         name,
@@ -148,7 +148,7 @@ const Form = (props) => {
           />
         </div>
 
-        <button type="submit">Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>
   );
