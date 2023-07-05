@@ -38,15 +38,16 @@ const Form = (props) => {
 
     // Clear form inputs
     console.log(name, email, rating, description, mobileNumber);
-    props.tele.sendData(
-      JSON.stringify({
-        name,
-        email,
-        rating,
-        description,
-        phone_number: mobileNumber,
-      })
-    );
+    props.tele
+      .switchInlineQuery
+      // JSON.stringify({
+      //   name,
+      //   email,
+      //   rating,
+      //   description,
+      //   phone_number: mobileNumber,
+      // })
+      ();
     console.log(props.tele);
   };
 
