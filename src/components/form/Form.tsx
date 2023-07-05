@@ -54,25 +54,25 @@ const Form = (props) => {
   const urlParams = new URLSearchParams(window.location.search);
   const queryMobileNumber = urlParams.get("mobileNumber");
   const disabledMobileNumber = queryMobileNumber || null;
-  const mainButton = props.tele.MainButton;
-  mainButton.text = "Submit feedback";
-  mainButton.color = "#00ab55";
-  mainButton.onClick(handleSubmit);
+  // const mainButton = props.tele.MainButton;
+  // mainButton.text = "Submit feedback";
+  // mainButton.color = "#00ab55";
+  // mainButton.onClick(handleSubmit);
 
   const checkAllField = () => {
     if (name && email && rating && description && mobileNumber) {
-      mainButton.enable();
-      mainButton.show();
+      // mainButton.enable();
+      // mainButton.show();
     } else {
       // mainButton.disable();
-      mainButton.hide();
+      // mainButton.hide();
     }
   };
   console.log(name, email, rating, description, mobileNumber);
   useEffect(() => {
     setMobileNumber(queryMobileNumber);
   }, []);
-  checkAllField();
+  // checkAllField();
   // useEffect(() => {});
   const selectStyle = {
     width: "300px",
@@ -161,7 +161,7 @@ const Form = (props) => {
           />
         </div>
 
-        <button style={{ display: "none" }} type="submit">
+        <button style={{}} type="submit">
           Submit
         </button>
       </form>
