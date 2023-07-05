@@ -45,29 +45,6 @@ const Form = (props) => {
       })
     );
     console.log(props.tele);
-    // Create a new feedback document
-    // const newFeedback = new Feedback({
-    //   name,
-    //   email,
-    //   rating,
-    //   description,
-    //   mobileNumber,
-    // });
-
-    // try {
-    //   // Save the feedback document to the database
-    //   let ans = await newFeedback.save();
-    //   console.log("Feedback saved successfully!");
-
-    //   // Clear form inputs
-    //   setName("");
-    //   setEmail("");
-    //   setRating("");
-    //   setDescription("");
-    //   setMobileNumber("");
-    // } catch (error) {
-    //   console.error("Error saving feedback:", error);
-    // }
   };
 
   // Extracting mobile number from the URL query (e.g., ?mobileNumber=1234567890)
@@ -86,7 +63,7 @@ const Form = (props) => {
           name: name,
           email: email,
           rating: 1,
-          description,
+          description: description,
           phone_number: mobileNumber,
         })
       );
@@ -187,7 +164,7 @@ const Form = (props) => {
           id="mobileNumber"
           value={disabledMobileNumber}
           onChange={(e) => setMobileNumber(e.target.value)}
-          readOnly
+          contentEditable={false}
           required
         />
       </div>
