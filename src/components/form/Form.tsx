@@ -54,25 +54,25 @@ const Form = (props) => {
   const urlParams = new URLSearchParams(window.location.search);
   const queryMobileNumber = urlParams.get("mobileNumber");
   const disabledMobileNumber = queryMobileNumber || null;
-  // const mainButton = props.tele.MainButton;
-  // mainButton.text = "Submit feedback";
-  // mainButton.color = "#00ab55";
-  // mainButton.onClick(handleSubmit);
+  const mainButton = props.tele.MainButton;
+  mainButton.text = "Submit feedback";
+  mainButton.color = "#00ab55";
 
   const checkAllField = () => {
     if (name && email && rating && description && mobileNumber) {
-      // mainButton.enable();
-      // mainButton.show();
+      mainButton.enable();
+      mainButton.show();
+      mainButton.onClick(handleSubmit);
     } else {
-      // mainButton.disable();
-      // mainButton.hide();
+      mainButton.disable();
+      mainButton.hide();
     }
   };
   console.log(name, email, rating, description, mobileNumber);
   useEffect(() => {
     setMobileNumber(queryMobileNumber);
   }, []);
-  // checkAllField();
+  checkAllField();
   // useEffect(() => {});
   const selectStyle = {
     width: "300px",
@@ -80,91 +80,100 @@ const Form = (props) => {
   return (
     <div className="feedback-form-container">
       <h2>Feedback Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          {/* <label htmlFor="name">Name</label> */}
-          <Input
-            placeholder="Name..."
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
+      {/* <form onSubmit={handleSubmit}> */}
+      <div className="form-group">
+        {/* <label htmlFor="name">Name</label> */}
+        <Input
+          placeholder="Name..."
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </div>
 
-        <div className="form-group">
-          {/* <label htmlFor="email">Email</label> */}
-          <Input
-            placeholder="Email..."
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+      <div className="form-group">
+        {/* <label htmlFor="email">Email</label> */}
+        <Input
+          placeholder="Email..."
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
 
-        <div
-          className="form-group"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <label htmlFor="rating">Rating</label>
-          <Select
-            placeholder="Rating..."
-            style={selectStyle}
-            id="rating"
-            value={rating}
-            onChange={(e) => setRating(e)}
-            required
-            options={[
-              // { value: "", label: "Rating" },
-              { value: "good", label: "Good" },
-              { value: "average", label: "Average" },
-              { value: "bad", label: "Bad" },
-            ]}
-          />
-          {/* <option value=""></option>
+      <div
+        className="form-group"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <label htmlFor="rating">Rating</label>
+        <Select
+          placeholder="Rating..."
+          style={selectStyle}
+          id="rating"
+          value={rating}
+          onChange={(e) => setRating(e)}
+          required
+          options={[
+            // { value: "", label: "Rating" },
+            { value: "good", label: "Good" },
+            { value: "average", label: "Average" },
+            { value: "bad", label: "Bad" },
+          ]}
+        />
+        {/* <option value=""></option>
           <option value="good">Good</option>
           <option value="bad">Bad</option>
           <option value="average">Average</option> */}
-          {/* </Select> */}
-        </div>
+        {/* </Select> */}
+      </div>
 
-        <div className="form-group">
-          {/* <label htmlFor="description">Description</label> */}
-          <TextArea
-            name="desc"
-            placeholder="Describe..."
-            rows={4}
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
+      <div className="form-group">
+        {/* <label htmlFor="description">Description</label> */}
+        <TextArea
+          name="desc"
+          placeholder="Describe..."
+          rows={4}
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </div>
 
-        <div className="form-group">
-          {/* <label htmlFor="mobileNumber">Mobile Number</label> */}
-          <Input
-            placeholder="Mobile number"
-            type="tel"
-            id="mobileNumber"
-            value={disabledMobileNumber}
-            // onChange={(e) => setMobileNumber(e.target.value)}
-            contentEditable={false}
-            required
-          />
-        </div>
+      <div className="form-group">
+        {/* <label htmlFor="mobileNumber">Mobile Number</label> */}
+        <Input
+          placeholder="Mobile number"
+          type="tel"
+          id="mobileNumber"
+          value={disabledMobileNumber}
+          // onChange={(e) => setMobileNumber(e.target.value)}
+          contentEditable={false}
+          required
+        />
+      </div>
 
-        <button style={{}} type="submit">
+      {/* <button
+          style={{
+            display:
+              name && description && rating && mobileNumber && email
+                ? "true"
+                : "false",
+            backgroundColor: "#00ab55",
+          }}
+          type="submit"
+        >
           Submit
-        </button>
-      </form>
+        </button> */}
+      {/* </form> */}
     </div>
   );
 };
