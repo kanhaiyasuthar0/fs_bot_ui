@@ -13,7 +13,7 @@ h2 {
 }
 
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 label {
@@ -30,10 +30,10 @@ textarea {
   /* border: 1px solid #ccc; */
   background-color: #212121 !important;
   color: white !important;
-  color: white;
 }
 
 input[type="text"],
+textArea[name="desc"],
 input[type="email"],
 input[type="tel"],
 input[type="select"] {
@@ -50,4 +50,18 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.572) !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white !important;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white !important;
 }

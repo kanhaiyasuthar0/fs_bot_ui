@@ -159,6 +159,7 @@ const Form = (props) => {
         <div className="form-group">
           {/* <label htmlFor="description">Description</label> */}
           <TextArea
+            name="desc"
             placeholder="Describe..."
             rows={4}
             id="description"
