@@ -23,7 +23,7 @@ import TextArea from "antd/es/input/TextArea";
 // Create a feedback model
 // const Feedback = mongoose.model("Feedback", feedbackSchema);
 const Form = (props) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("hello");
   const [email, setEmail] = useState("");
   const [rating, setRating] = useState("");
   const [description, setDescription] = useState("");
