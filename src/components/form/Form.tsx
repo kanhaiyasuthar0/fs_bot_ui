@@ -78,10 +78,10 @@ const Form = (props) => {
   const checkAllField = () => {
     if (name && email && rating && description && mobileNumber) {
       const mainButton = props.tele.MainButton;
-      mainButton.text = "Save Preferences";
+      mainButton.text = "Submit feedback";
+      mainButton.color = "#00ab55";
       mainButton.enable();
       mainButton.show();
-
       mainButton.onClick(handleSubmit);
     }
   };
