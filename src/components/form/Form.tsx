@@ -137,11 +137,11 @@ const Form = (props) => {
       </div>
 
       <div className="form-group">
-        {/* <label htmlFor="description">Description</label> */}
+        <label htmlFor="description">Tell us what can be improved?</label>
         <TextArea
           name="desc"
           placeholder="Describe..."
-          rows={4}
+          rows={6}
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}

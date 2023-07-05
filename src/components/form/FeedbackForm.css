@@ -5,13 +5,14 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 10px;
-  /* background-color: #0f0f0f; */
-  border: 1px solid #0f0f0f;
-  border-radius: 5px;
+  background-color: #212121;
+  border: 1px solid #212121;
+  border-radius: 10px;
 }
 
 h2 {
   text-align: left;
+  color: white;
 }
 
 .form-group {
@@ -21,7 +22,10 @@ h2 {
 label {
   display: block;
   margin-bottom: 5px;
-  /* color: white; */
+  /* background-color: white; */
+  text-align: left;
+  /* border: 1px solid; */
+  color: white;
 }
 
 input,
