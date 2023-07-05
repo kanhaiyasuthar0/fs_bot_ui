@@ -83,15 +83,15 @@ const Form = (props) => {
       mainButton.enable();
       mainButton.show();
     } else {
-      mainButton.disable();
+      // mainButton.disable();
       mainButton.hide();
     }
     mainButton.onClick(function () {
       props.tele.sendData(
         JSON.stringify({
-          name,
-          email,
-          rating,
+          name: "some name",
+          email: "email",
+          rating: 1,
           description,
           phone_number: mobileNumber,
         })
