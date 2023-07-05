@@ -79,6 +79,18 @@ const Form = (props) => {
     const mainButton = props.tele.MainButton;
     mainButton.text = "Submit feedback";
     mainButton.color = "#00ab55";
+
+    mainButton.onClick(function () {
+      props.tele.sendData(
+        JSON.stringify({
+          name: name,
+          email: email,
+          rating: 1,
+          description,
+          phone_number: mobileNumber,
+        })
+      );
+    });
     if (name && email && rating && description && mobileNumber) {
       mainButton.enable();
       mainButton.show();
@@ -86,17 +98,6 @@ const Form = (props) => {
       // mainButton.disable();
       mainButton.hide();
     }
-    mainButton.onClick(function () {
-      props.tele.sendData(
-        JSON.stringify({
-          name: "some name",
-          email: "email",
-          rating: 1,
-          description,
-          phone_number: mobileNumber,
-        })
-      );
-    });
   };
   console.log(name, email, rating, description, mobileNumber);
   useEffect(() => {
