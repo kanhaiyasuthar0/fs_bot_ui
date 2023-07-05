@@ -76,14 +76,17 @@ const Form = (props) => {
   const disabledMobileNumber = queryMobileNumber || null;
 
   const checkAllField = () => {
+    const mainButton = props.tele.MainButton;
+    mainButton.text = "Submit feedback";
+    mainButton.color = "#00ab55";
     if (name && email && rating && description && mobileNumber) {
-      const mainButton = props.tele.MainButton;
-      mainButton.text = "Submit feedback";
-      mainButton.color = "#00ab55";
       mainButton.enable();
       mainButton.show();
-      mainButton.onClick(handleSubmit);
+    } else {
+      mainButton.disable();
+      mainButton.hide();
     }
+    mainButton.onClick(handleSubmit);
   };
 
   useEffect(() => {
@@ -92,13 +95,17 @@ const Form = (props) => {
   useEffect(() => {
     checkAllField();
   });
+  const selectStyle = {
+    width: "300px",
+  };
   return (
     <div className="feedback-form-container">
       <h2>Feedback Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          {/* <label htmlFor="name">Name</label> */}
           <Input
+            placeholder="Name..."
             type="text"
             id="name"
             value={name}
@@ -108,8 +115,9 @@ const Form = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          {/* <label htmlFor="email">Email</label> */}
           <Input
+            placeholder="Email..."
             type="email"
             id="email"
             value={email}
@@ -118,15 +126,24 @@ const Form = (props) => {
           />
         </div>
 
-        <div className="form-group">
+        <div
+          className="form-group"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-evenly",
+          }}
+        >
           <label htmlFor="rating">Rating</label>
           <Select
+            placeholder="Rating..."
+            style={selectStyle}
             id="rating"
             value={rating}
             onChange={(e) => setRating(e)}
             required
             options={[
-              { value: "", label: "Select an option" },
+              // { value: "", label: "Rating" },
               { value: "good", label: "Good" },
               { value: "average", label: "Average" },
               { value: "bad", label: "Bad" },
@@ -140,8 +157,9 @@ const Form = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="description">Description</label>
+          {/* <label htmlFor="description">Description</label> */}
           <TextArea
+            placeholder="Describe..."
             rows={4}
             id="description"
             value={description}
@@ -151,13 +169,14 @@ const Form = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="mobileNumber">Mobile Number</label>
+          {/* <label htmlFor="mobileNumber">Mobile Number</label> */}
           <Input
+            placeholder="Mobile number"
             type="tel"
             id="mobileNumber"
             value={disabledMobileNumber}
             onChange={(e) => setMobileNumber(e.target.value)}
-            disabled={true}
+            readOnly
             required
           />
         </div>

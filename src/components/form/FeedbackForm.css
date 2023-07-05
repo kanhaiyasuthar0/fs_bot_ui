@@ -3,12 +3,13 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #0f0f0f;
   border-radius: 5px;
 }
 
 h2 {
   text-align: center;
+  color: white;
 }
 
 .form-group {
@@ -18,6 +19,7 @@ h2 {
 label {
   display: block;
   margin-bottom: 5px;
+  color: white;
 }
 
 input,
@@ -25,7 +27,18 @@ textarea {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
+  background-color: #212121 !important;
+  color: white !important;
+  color: white;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+  font-size: 20px;
+  font-weight: 600 !important;
 }
 
 button {
