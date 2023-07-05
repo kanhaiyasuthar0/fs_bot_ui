@@ -29,8 +29,10 @@ const Form = (props) => {
   const [description, setDescription] = useState("");
   const [mobileNumber, setMobileNumber] = useState();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    if (event) {
+      event.preventDefault();
+    }
     // Handle form submission logic here
     // You can send the feedback data to a server or perform any other actions
 
