@@ -115,6 +115,7 @@ const Form = (props) => {
       >
         <label htmlFor="rating">Rating</label>
         <Select
+          size="large"
           placeholder="Rating..."
           style={selectStyle}
           id="rating"

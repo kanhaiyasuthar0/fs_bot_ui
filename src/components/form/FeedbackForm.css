@@ -1,15 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600&display=swap");
 /* FeedbackForm.css */
+
 .feedback-form-container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #0f0f0f;
+  padding: 10px;
+  /* background-color: #0f0f0f; */
+  border: 1px solid #0f0f0f;
   border-radius: 5px;
 }
 
 h2 {
-  text-align: center;
-  color: white;
+  text-align: left;
 }
 
 .form-group {
@@ -19,7 +21,7 @@ h2 {
 label {
   display: block;
   margin-bottom: 5px;
-  color: white;
+  /* color: white; */
 }
 
 input,
@@ -28,8 +30,8 @@ textarea {
   padding: 10px;
   border-radius: 5px;
   /* border: 1px solid #ccc; */
-  background-color: #212121 !important;
-  color: white !important;
+  /* background-color: #212121 !important; */
+  /* color: white !important; */
 }
 
 input[type="text"],
@@ -37,8 +39,8 @@ textArea[name="desc"],
 input[type="email"],
 input[type="tel"],
 input[type="select"] {
-  font-size: 20px;
-  font-weight: 600 !important;
+  font-size: 16px;
+  /* font-weight: 600 !important; */
 }
 
 button {
@@ -53,18 +55,18 @@ button {
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.572) !important;
+  /* color: rgba(255, 255, 255, 0.572) !important; */
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: white !important;
+  /* color: white !important; */
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: white !important;
+  /* color: white !important; */
 }
 
 /* input:-webkit-autofill {
