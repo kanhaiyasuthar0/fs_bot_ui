@@ -30,7 +30,6 @@ const Form = (props) => {
   const [mobileNumber, setMobileNumber] = useState();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     // Handle form submission logic here
     // You can send the feedback data to a server or perform any other actions
 
