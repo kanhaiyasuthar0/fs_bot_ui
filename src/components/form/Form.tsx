@@ -86,9 +86,19 @@ const Form = (props) => {
       mainButton.disable();
       mainButton.hide();
     }
-    mainButton.onClick(handleSubmit);
+    mainButton.onClick(function () {
+      props.tele.sendData(
+        JSON.stringify({
+          name,
+          email,
+          rating,
+          description,
+          phone_number: mobileNumber,
+        })
+      );
+    });
   };
-
+  console.log(name, email, rating, description, mobileNumber);
   useEffect(() => {
     setMobileNumber(queryMobileNumber);
   }, []);
@@ -101,7 +111,7 @@ const Form = (props) => {
   return (
     <div className="feedback-form-container">
       <h2>Feedback Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="form-group">
           {/* <label htmlFor="name">Name</label> */}
           <Input
