@@ -75,9 +75,24 @@ const Form = (props) => {
   const urlParams = new URLSearchParams(window.location.search);
   const queryMobileNumber = urlParams.get("mobileNumber");
   const disabledMobileNumber = queryMobileNumber || null;
+
+  const checkAllField = () => {
+    if (name && email && rating && description && mobileNumber) {
+      const mainButton = props.tele.MainButton;
+      mainButton.text = "Save Preferences";
+      mainButton.enable();
+      mainButton.show();
+
+      mainButton.onClick(handleSubmit);
+    }
+  };
+
   useEffect(() => {
     setMobileNumber(queryMobileNumber);
   }, []);
+  useEffect(() => {
+    checkAllField();
+  });
   return (
     <div className="feedback-form-container">
       <h2>Feedback Form</h2>
@@ -148,7 +163,7 @@ const Form = (props) => {
           />
         </div>
 
-        <button onClick={handleSubmit}>Submit</button>
+        {/* <button onClick={handleSubmit}>Submit</button> */}
       </form>
     </div>
   );
