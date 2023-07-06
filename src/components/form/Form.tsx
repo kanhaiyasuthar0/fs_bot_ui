@@ -37,17 +37,18 @@ const Form = (props) => {
     // You can send the feedback data to a server or perform any other actions
 
     // Clear form inputs
+    console.log(props.tele);
     console.log(name, email, rating, description, mobileNumber);
-    props.tele
-      .switchInlineQuery
-      // JSON.stringify({
-      //   name,
-      //   email,
-      //   rating,
-      //   description,
-      //   phone_number: mobileNumber,
-      // })
-      ();
+    props.tele.answerWebAppQuery("/start");
+    // props.tele.sendData(
+    //   JSON.stringify({
+    //     name,
+    //     email,
+    //     rating,
+    //     description,
+    //     phone_number: mobileNumber,
+    //   })
+    // );
     console.log(props.tele);
   };
 
