@@ -40,7 +40,7 @@ const Form = (props) => {
     console.log(props.tele);
     console.log(name, email, rating, description, mobileNumber);
     // props.tele.initData = "initData random";
-    props.tele.initDataUnsafe["random"] = "initData random";
+    // props.tele.initDataUnsafe["random"] = "initData random";
     props.tele.sendData(
       JSON.stringify({
         name,
@@ -63,12 +63,12 @@ const Form = (props) => {
   const mainButton = props.tele.MainButton;
   mainButton.text = "Submit feedback";
   mainButton.color = "#00ab55";
-
+  props.tele.WebApp.onEvent("mainButtonClicked", handleSubmit);
   const checkAllField = () => {
     if (name && email && rating && description && mobileNumber) {
       mainButton.enable();
       mainButton.show();
-      mainButton.onClick(handleSubmit);
+      // mainButton.onClick(handleSubmit);
     } else {
       mainButton.disable();
       mainButton.hide();
