@@ -39,18 +39,21 @@ const Form = (props) => {
     // Clear form inputs
     console.log(props.tele);
     console.log(name, email, rating, description, mobileNumber);
-    props.tele.answerWebAppQuery("/start");
-    // props.tele.sendData(
-    //   JSON.stringify({
-    //     name,
-    //     email,
-    //     rating,
-    //     description,
-    //     phone_number: mobileNumber,
-    //   })
-    // );
+    props.tele.initData = "initData random";
+    props.tele.sendData(
+      JSON.stringify({
+        name,
+        email,
+        rating,
+        description,
+        phone_number: mobileNumber,
+      })
+    );
     console.log(props.tele);
+    // props.tele.close();
   };
+
+  console.log(props.tele, "props.tele");
 
   // Extracting mobile number from the URL query (e.g., ?mobileNumber=1234567890)
   const urlParams = new URLSearchParams(window.location.search);
