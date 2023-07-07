@@ -63,7 +63,7 @@ const Form = (props) => {
   const mainButton = props.tele.MainButton;
   mainButton.text = "Submit feedback";
   mainButton.color = "#00ab55";
-  props.tele.WebApp.onEvent("mainButtonClicked", handleSubmit);
+  // props.tele.WebApp.onEvent("mainButtonClicked", handleSubmit);
   const checkAllField = () => {
     if (name && email && rating && description && mobileNumber) {
       mainButton.enable();
@@ -168,18 +168,19 @@ const Form = (props) => {
         />
       </div>
 
-      {/* <button
-          style={{
-            display:
-              name && description && rating && mobileNumber && email
-                ? "true"
-                : "false",
-            backgroundColor: "#00ab55",
-          }}
-          type="submit"
-        >
-          Submit
-        </button> */}
+      <button
+        style={{
+          display:
+            name && description && rating && mobileNumber && email
+              ? "true"
+              : "false",
+          backgroundColor: "#00ab55",
+        }}
+        type="submit"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
       {/* </form> */}
     </div>
   );
