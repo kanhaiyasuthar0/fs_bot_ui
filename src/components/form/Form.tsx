@@ -63,7 +63,9 @@ const Form = (props) => {
   const mainButton = props.tele.MainButton;
   mainButton.text = "Submit feedback";
   mainButton.color = "#00ab55";
-  // props.tele.WebApp.onEvent("mainButtonClicked", handleSubmit);
+  props.tele.WebApp.onEvent("mainButtonClicked", (e) => {
+    handleSubmit(e);
+  });
   const checkAllField = () => {
     if (name && email && rating && description && mobileNumber) {
       mainButton.enable();
