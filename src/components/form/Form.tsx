@@ -50,7 +50,7 @@ const Form = (props) => {
         phone_number: mobileNumber,
       })
     );
-    console.log(props.tele);
+    console.log(props.tele.close());
     // props.tele.close();
   };
 
