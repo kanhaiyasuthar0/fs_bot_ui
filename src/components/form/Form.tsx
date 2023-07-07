@@ -39,7 +39,8 @@ const Form = (props) => {
     // Clear form inputs
     console.log(props.tele);
     console.log(name, email, rating, description, mobileNumber);
-    props.tele.initData = "initData random";
+    // props.tele.initData = "initData random";
+    props.tele.initDataUnsafe["random"] = "initData random";
     props.tele.sendData(
       JSON.stringify({
         name,
