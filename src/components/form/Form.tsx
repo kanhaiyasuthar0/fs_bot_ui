@@ -5,6 +5,7 @@ import { Button, Input, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { CSSTransition } from "react-transition-group";
 import { Rating, Typography } from "@mui/material";
+import axios from "axios";
 // import Rating from "react-rating";
 // const mongoose = require("mongoose");
 
@@ -67,28 +68,41 @@ const Form = (props) => {
       phone_number: mobileNumber,
     };
     let BOT_TOKEN = "6274194101:AAGLeYbQj88EeD6uQrX7CC3g0SzlPTHFwLw";
-    props.tele.readTextFromClipboard((text) => {
-      console.log("text", text);
-    });
+    // props.tele.readTextFromClipboard((text) => {
+    //   console.log("text", text);
+    // });
     const authData = props.tele.initData || "";
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: {
-        chat_id: props.tele.initDataUnsafe.user.id,
+
+    axios
+      .post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        chat_id: props.tele.initDataUnsafe.user.id || "1465932798",
         text: "I am back",
-      },
-    })
-      .then((response) => {
-        // Handle the response if necessary
       })
-      .catch((error) => {
-        // Handle any errors
+      .then(() => {
+        console.log(props.tele.close());
+      })
+      .catch(() => {
+        alert("Some error occured!");
       });
 
-    console.log(props.tele.close());
+    // fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: {
+    //     chat_id: props.tele.initDataUnsafe.user.id,
+    //     text: "I am back",
+    //   },
+    // })
+    //   .then((response) => {
+    //     // Handle the response if necessary
+    //   })
+    //   .catch((error) => {
+    //     // Handle any errors
+    //   });
+
+    // console.log(props.tele.close());
     // props.tele.close();
   };
 
