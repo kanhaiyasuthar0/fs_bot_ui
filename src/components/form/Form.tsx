@@ -76,10 +76,10 @@ const Form = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        chat_id: props.tele.initDataUnsafe.user.id || "",
+      body: {
+        chat_id: props.tele.initDataUnsafe.user.id,
         text: "I am back",
-      }),
+      },
     })
       .then((response) => {
         // Handle the response if necessary
