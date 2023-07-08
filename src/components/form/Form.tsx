@@ -50,15 +50,43 @@ const Form = (props) => {
     console.log(name, email, rating, description, mobileNumber);
     // props.tele.initData = "initData random";
     // props.tele.initDataUnsafe["random"] = "initData random";
-    props.tele.sendData(
-      JSON.stringify({
-        name,
-        email,
-        rating: value,
-        description,
-        phone_number: mobileNumber,
+    // props.tele.sendData(
+    //   JSON.stringify({
+    //     name,
+    //     email,
+    //     rating: value,
+    //     description,
+    //     phone_number: mobileNumber,
+    //   })
+    // );
+    const dataToSend = {
+      name,
+      email,
+      rating: value,
+      description,
+      phone_number: mobileNumber,
+    };
+    let BOT_TOKEN = "6274194101:AAGLeYbQj88EeD6uQrX7CC3g0SzlPTHFwLw";
+    props.tele.readTextFromClipboard((text) => {
+      console.log("text", text);
+    });
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/answerWebAppQuery`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        web_app_id: " <WEB_APP_ID>",
+        data: dataToSend,
+      }),
+    })
+      .then((response) => {
+        // Handle the response if necessary
       })
-    );
+      .catch((error) => {
+        // Handle any errors
+      });
+
     console.log(props.tele.close());
     // props.tele.close();
   };

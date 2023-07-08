@@ -6,6 +6,7 @@ function App() {
   const tele = window.Telegram.WebApp;
 
   useEffect(() => {
+    console.log("TELEGRAM", window.Telegram);
     tele.ready();
   });
   return (
