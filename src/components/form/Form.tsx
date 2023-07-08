@@ -26,7 +26,7 @@ import { Rating, Typography } from "@mui/material";
 // Create a feedback model
 // const Feedback = mongoose.model("Feedback", feedbackSchema);
 const Form = (props) => {
-  const [value, setValue] = React.useState(2);
+  const [value, setValue] = React.useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [rating, setRating] = useState("");
