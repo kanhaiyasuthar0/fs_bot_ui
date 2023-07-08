@@ -76,7 +76,7 @@ const Form = (props) => {
     axios
       .post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         chat_id: props.tele.initDataUnsafe.user.id || "1465932798",
-        text: "I am back",
+        text: "Thanks for giving feedback!",
       })
       .then(() => {
         console.log(props.tele.close());
