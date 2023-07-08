@@ -70,15 +70,19 @@ const Form = (props) => {
     props.tele.readTextFromClipboard((text) => {
       console.log("text", text);
     });
+    const authData = props.tele.initData || "";
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/answerWebAppQuery`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        web_app_id: " <WEB_APP_ID>",
-        data: dataToSend,
-      }),
+      body: JSON.stringify(
+        Object.assign(dataToSend, {
+          _auth: authData,
+          method: "POST",
+        })
+      ),
+      credentials: "include",
     })
       .then((response) => {
         // Handle the response if necessary
