@@ -71,19 +71,20 @@ const Form = (props) => {
       console.log("text", text);
     });
     const authData = props.tele.initData || "";
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/answerWebAppQuery`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(
-        Object.assign(dataToSend, {
-          _auth: authData,
-          method: "POST",
-        })
-      ),
-      credentials: "include",
-    })
+    fetch(
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+      {
+        chat_id: props.tele.initDataUnsafe.user.id || "",
+        text: "MESSAGE_TEXT",
+      }
+      // body: JSON.stringify(
+      //   Object.assign(dataToSend, {
+      //     _auth: authData,
+      //     method: "POST",
+      //   })
+      // ),
+      // credentials: "include",
+    )
       .then((response) => {
         // Handle the response if necessary
       })
