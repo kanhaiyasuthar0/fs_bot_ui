@@ -4,10 +4,10 @@ import Form from "./components/form/Form.tsx";
 
 function App() {
   const tele = window.Telegram.WebApp;
-
   useEffect(() => {
     console.log("TELEGRAM", window.Telegram);
     tele.ready();
+    // setMobileNumber(queryMobileNumber);
   });
   return (
     <div className="App">
