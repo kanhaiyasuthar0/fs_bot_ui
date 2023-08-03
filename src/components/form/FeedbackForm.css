@@ -19,7 +19,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-label {
+.label {
   display: block;
   margin-bottom: 5px;
   /* background-color: white; */
@@ -27,7 +27,10 @@ label {
   /* border: 1px solid; */
   color: black;
 }
-
+.feedback-form-container label {
+  color: white !important;
+  text-align: left;
+}
 input,
 textarea {
   width: 100%;
