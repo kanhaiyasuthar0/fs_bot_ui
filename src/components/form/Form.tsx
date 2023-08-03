@@ -146,9 +146,9 @@ const Form = (props) => {
   console.log(mobileNumber % 2 !== 0, "odd");
   return (
     <>
-      {button_text == "Fill account details" && (
-        <OddForm mobileNumber={mobileNumber} tele={props.tele} />
-      )}
+      <OddForm mobileNumber={mobileNumber} tele={props.tele} />
+      {/* {button_text == "Fill account details" && (
+      )} */}
       {button_text == "Give feedback" && (
         <NewFeedback handleSubmit={handleSubmit} />
       )}
