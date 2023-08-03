@@ -41,7 +41,7 @@ const NewFeedback = ({ handleSubmit }) => {
           />
         </div>
 
-        <FloatingLabel label="Email address" className="dense has-icon mb-3">
+        <FloatingLabel label="Email address" className="dense mb-3">
           <Form.Control
             name="email"
             type="email"
