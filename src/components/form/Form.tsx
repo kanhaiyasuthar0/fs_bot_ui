@@ -112,6 +112,7 @@ const Form = (props) => {
   // Extracting mobile number from the URL query (e.g., ?mobileNumber=1234567890)
   const urlParams = new URLSearchParams(window.location.search);
   const queryMobileNumber = urlParams.get("mobileNumber");
+  const button_text = urlParams.get("button_text");
   const disabledMobileNumber = queryMobileNumber || null;
   const mainButton = props.tele.MainButton;
   mainButton.text = "Submit feedback";
@@ -144,7 +145,7 @@ const Form = (props) => {
   console.log(mobileNumber % 2 !== 0, "odd");
   return (
     <>
-      {mobileNumber % 2 == 0 && (
+      {button_text == "Give feedback" && (
         <div className="feedback-form-container">
           <h2>Feedback Form</h2>
           <CSSTransition
@@ -351,7 +352,7 @@ const Form = (props) => {
           {/* </form> */}
         </div>
       )}
-      {mobileNumber % 2 !== 0 && (
+      {button_text == "Fill account details" && (
         <OddForm mobileNumber={mobileNumber} tele={props.tele} />
       )}
     </>
