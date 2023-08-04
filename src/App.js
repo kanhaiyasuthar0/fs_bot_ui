@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
-import Form from "./components/form/Form.tsx";
+import FormComponent from "./components/form/Form.tsx";
 
 function App() {
   const tele = window.Telegram.WebApp;
@@ -11,7 +11,7 @@ function App() {
   });
   return (
     <div className="App">
-      <Form tele={tele} />
+      <FormComponent tele={tele} />
     </div>
   );
 }

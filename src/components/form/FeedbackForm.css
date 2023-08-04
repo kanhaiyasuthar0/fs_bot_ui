@@ -297,3 +297,6 @@ body {
   background: white !important;
   z-index: 10;
 }
+.navbar a {
+  color: white !important;
+}

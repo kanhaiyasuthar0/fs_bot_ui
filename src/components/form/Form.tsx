@@ -8,6 +8,13 @@ import { Rating, Typography } from "@mui/material";
 import axios from "axios";
 import OddForm from "./OddForm";
 import NewFeedback from "./NewFeedback";
+
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
 // import Rating from "react-rating";
 // const mongoose = require("mongoose");
 
@@ -28,7 +35,7 @@ import NewFeedback from "./NewFeedback";
 
 // Create a feedback model
 // const Feedback = mongoose.model("Feedback", feedbackSchema);
-const Form = (props) => {
+const FormComponent = (props) => {
   const [value, setValue] = React.useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -141,11 +148,69 @@ const Form = (props) => {
   const selectStyle = {
     width: "300px",
   };
-
+  let expand = false;
   console.log(mobileNumber % 2 == 0, "even");
   console.log(mobileNumber % 2 !== 0, "odd");
   return (
     <>
+      <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls={`offcanvasNavbar-expand-${expand}`}
+            style={{ width: "50px" }}
+          />
+          <Navbar.Offcanvas
+            id={`offcanvasNavbar-expand-${expand}`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                Menu
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Nav.Link
+                  href={`/?mobileNumber=${urlParams.get(
+                    "mobileNumber"
+                  )}&&first_name=${urlParams.get(
+                    "first_name"
+                  )}&&button_text=${"Give feedback"}`}
+                >
+                  Feedback
+                </Nav.Link>
+
+                {urlParams.get("button_text") == "Fill account details" && (
+                  <Nav.Link
+                    href={`/?mobileNumber=${urlParams.get(
+                      "mobileNumber"
+                    )}&&first_name=${urlParams.get(
+                      "first_name"
+                    )}&&button_text=${"Fill account details"}`}
+                  >
+                    Account
+                  </Nav.Link>
+                )}
+                {/* <NavDropdown
+                  title="Dropdown"
+                  id={`offcanvasNavbarDropdown-expand-${expand}`}
+                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown> */}
+              </Nav>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
       {button_text == "Fill account details" && (
         <OddForm mobileNumber={mobileNumber} tele={props.tele} />
       )}
@@ -156,4 +221,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default FormComponent;
