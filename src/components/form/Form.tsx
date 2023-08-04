@@ -190,7 +190,7 @@ const FormComponent = (props) => {
                       "mobileNumber"
                     )}&&first_name=${urlParams.get(
                       "first_name"
-                    )}&&button_text=${"Fill account details"}&&${urlParams.get(
+                    )}&&button_text=${"Fill account details"}&&type=${urlParams.get(
                       "type"
                     )}`}
                   >
