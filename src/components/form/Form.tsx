@@ -177,18 +177,22 @@ const FormComponent = (props) => {
                     "mobileNumber"
                   )}&&first_name=${urlParams.get(
                     "first_name"
-                  )}&&button_text=${"Give feedback"}`}
+                  )}&&button_text=${"Give feedback"}&&type=${urlParams.get(
+                    "type"
+                  )}`}
                 >
                   Feedback
                 </Nav.Link>
 
-                {urlParams.get("button_text") == "Fill account details" && (
+                {urlParams.get("type") == "2" && (
                   <Nav.Link
                     href={`/?mobileNumber=${urlParams.get(
                       "mobileNumber"
                     )}&&first_name=${urlParams.get(
                       "first_name"
-                    )}&&button_text=${"Fill account details"}`}
+                    )}&&button_text=${"Fill account details"}&&${urlParams.get(
+                      "type"
+                    )}`}
                   >
                     Account
                   </Nav.Link>
